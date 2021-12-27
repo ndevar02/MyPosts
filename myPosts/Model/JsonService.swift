@@ -14,42 +14,67 @@ protocol JsonDataDelegate{
 struct JsonService {
     let getJsonData = "https://jsonplaceholder.typicode.com/posts"
     var delegate: JsonDataDelegate?
-   
-    public func performService()  {
-        
-        if let url = URL(string: getJsonData){
-            let session = URLSession(configuration:.default)
-            let task =  session.dataTask(with: url) { (data, response, error) in
-                if error == nil {
-                    
-                    if let safeData = data {
-                    let result = parsejson(jsonData: safeData)
-                        self.delegate?.updateData(jsonDataArray: result!)
-                    }
-                   
-                }
-                
-            }
-            task.resume()
-        }
     
-        
-    }
     private func parsejson(jsonData : Data) -> [JsonData]? {
         
         let decoder = JSONDecoder()
         do{
-           
+            
             let value = try decoder.decode([JsonData].self, from: jsonData)
             
             return value
         }
         catch{
             print(error)
-           return nil
+            return nil
         }
         
     }
     
+    
+    public func getJsonData(completion:@escaping(Error?)->()){
+        
+        guard let nsURL = URL(string:getJsonData) else {return}
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "GET"
+        
+        // Add other verbs here
+        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+            if error == nil {
+                
+                if let safeData = data {
+                    let result = parsejson(jsonData: safeData)
+                    self.delegate?.updateData(jsonDataArray: result!)
+                }
+                
+            }
+            
+        }
+        task.resume()
+    }
+    
+    
+    
+    
+    public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
+        
+        guard let nsURL = URL(string:getJsonData+"/\(id)") else {return}
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "DELETE"
+        
+        // Add other verbs here
+        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+        }
+        task.resume()
+    }
     
 }

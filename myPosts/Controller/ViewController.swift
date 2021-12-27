@@ -19,6 +19,7 @@ class TableViewCell : UITableViewCell {
 class ViewController: UIViewController {
 
     var jsonArray = [JsonData]()
+    var service = JsonService()
 
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var tblMyPosts: UITableView!
@@ -28,9 +29,13 @@ class ViewController: UIViewController {
         tblMyPosts.delegate = self
         tblMyPosts.dataSource = self
         
-        var service = JsonService()
+       
         service.delegate = self
-       service.performService()
+        service.getJsonData { error in
+            if error == nil {
+                print(error!)
+            }
+        }
         
             
         tblMyPosts.rowHeight = UITableView.automaticDimension
@@ -57,9 +62,14 @@ extension ViewController : UITableViewDelegate{
            let TrashAction = UIContextualAction(style: .normal, title:  "Swipe to Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
                let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete the record", preferredStyle: UIAlertController.Style.alert)
                let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
+                   
+                   self.service.deleteJsonData(id:indexPath.row) { (error) in
+                       if let err = error{
+                           print(err)
+                       }
+                   }
                    self.jsonArray.remove(at: indexPath.row)
                    self.tblMyPosts.reloadData()
-                
 
                })
                alert.addAction(yesAction)
