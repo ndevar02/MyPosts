@@ -11,21 +11,21 @@ import Foundation
 protocol JsonDataDelegate{
     func updateData(jsonDataArray : [JsonData])
 }
+
 struct JsonService {
-    let getJsonData = "https://jsonplaceholder.typicode.com/posts"
+    let jsonUrl = "https://jsonplaceholder.typicode.com/posts"
     var delegate: JsonDataDelegate?
     
     private func parsejson(jsonData : Data) -> [JsonData]? {
         
         let decoder = JSONDecoder()
         do{
-            
             let value = try decoder.decode([JsonData].self, from: jsonData)
             
             return value
         }
         catch{
-            print(error)
+            ExceptionHandler.printError(message: error.localizedDescription)
             return nil
         }
         
@@ -34,7 +34,7 @@ struct JsonService {
     
     public func getJsonData(completion:@escaping(Error?)->()){
         
-        guard let nsURL = URL(string:getJsonData) else {return}
+        guard let nsURL = URL(string:jsonUrl) else {return}
         
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "GET"
@@ -50,6 +50,10 @@ struct JsonService {
                 }
                 
             }
+            else
+            {
+                ExceptionHandler.printError(message: error!.localizedDescription)
+            }
             
         }
         task.resume()
@@ -60,7 +64,7 @@ struct JsonService {
     
     public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
         
-        guard let nsURL = URL(string:getJsonData+"/\(id)") else {return}
+        guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
         
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "DELETE"
@@ -68,9 +72,8 @@ struct JsonService {
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-            if let error = error {
-                completion(error)
-                return
+            if error != nil {
+                ExceptionHandler.printError(message: error!.localizedDescription)
             }
             
         }

@@ -22,28 +22,23 @@ class ViewController: UIViewController {
         tblMyPosts.dataSource = self
         service.delegate = self
         service.getJsonData { error in
-            if error == nil {
-                print(error!)
+            if error != nil {
+                ExceptionHandler.printError(message: error!.localizedDescription)
             }
         }
-        
-        
+
         tblMyPosts.rowHeight = UITableView.automaticDimension
         tblMyPosts.estimatedRowHeight = 200
         activitySpinner.startAnimating()
         activitySpinner.hidesWhenStopped = true
         
-        
-        
     }
     
-    
-    
-    
+
     @IBAction func goToAddScreen(_ sender: UIBarButtonItem) {
         
         performSegue(withIdentifier: "AddScreen", sender: sender)
-
+        
     }
     
     @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
@@ -79,13 +74,12 @@ extension ViewController : UITableViewDelegate{
         })
         TrashAction.backgroundColor = .red
         
-        
-        
         return UISwipeActionsConfiguration(actions: [TrashAction])
     }
     
 }
 extension ViewController : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jsonArray.count
     }
@@ -108,7 +102,7 @@ extension ViewController : UITableViewDataSource{
 
 extension ViewController : JsonDataDelegate {
     func updateData(jsonDataArray: [JsonData]) {
-       
+        
         jsonArray = jsonDataArray
         DispatchQueue.main.async {
             
@@ -122,12 +116,11 @@ extension ViewController : JsonDataDelegate {
 }
 extension ViewController : TableCellEdit{
     func editData(index: Int) {
-        print(index)
+        
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-
-    let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController
-
+        let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController
+        
         self.navigationController?.pushViewController(editAdd, animated: true)
     }
     

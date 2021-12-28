@@ -11,6 +11,7 @@
 		2062178927797D7E0023FB4A /* JsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178827797D7E0023FB4A /* JsonData.swift */; };
 		20C07624277AD9C800EB22F7 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07623277AD9C800EB22F7 /* TableViewCell.swift */; };
 		20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07625277AEFB400EB22F7 /* EditAddController.swift */; };
+		20C0762A277B1B1E00EB22F7 /* ExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */; };
 		20EA707D2775BDC500A7D9D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA707C2775BDC500A7D9D8 /* AppDelegate.swift */; };
 		20EA707F2775BDC500A7D9D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA707E2775BDC500A7D9D8 /* SceneDelegate.swift */; };
 		20EA70812775BDC500A7D9D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EA70802775BDC500A7D9D8 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		2062178827797D7E0023FB4A /* JsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonData.swift; sourceTree = "<group>"; };
 		20C07623277AD9C800EB22F7 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		20C07625277AEFB400EB22F7 /* EditAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddController.swift; sourceTree = "<group>"; };
+		20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionHandler.swift; sourceTree = "<group>"; };
 		20EA70792775BDC500A7D9D8 /* myPosts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myPosts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20EA707C2775BDC500A7D9D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20EA707E2775BDC500A7D9D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		20EA70702775BDC500A7D9D8 = {
 			isa = PBXGroup;
 			children = (
-				20EA707B2775BDC500A7D9D8 /* myPosts */,
+				20EA707B2775BDC500A7D9D8 /* MyPosts */,
 				20EA707A2775BDC500A7D9D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +63,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		20EA707B2775BDC500A7D9D8 /* myPosts */ = {
+		20EA707B2775BDC500A7D9D8 /* MyPosts */ = {
 			isa = PBXGroup;
 			children = (
 				20EA70922775BEA600A7D9D8 /* Controller */,
@@ -73,7 +75,7 @@
 				20EA70872775BDC700A7D9D8 /* LaunchScreen.storyboard */,
 				20EA708A2775BDC700A7D9D8 /* Info.plist */,
 			);
-			path = myPosts;
+			path = MyPosts;
 			sourceTree = "<group>";
 		};
 		20EA70902775BE9000A7D9D8 /* View */ = {
@@ -89,6 +91,7 @@
 			children = (
 				2062178627797D360023FB4A /* JsonService.swift */,
 				2062178827797D7E0023FB4A /* JsonData.swift */,
+				20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				20C07624277AD9C800EB22F7 /* TableViewCell.swift in Sources */,
 				20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */,
 				20EA707D2775BDC500A7D9D8 /* AppDelegate.swift in Sources */,
+				20C0762A277B1B1E00EB22F7 /* ExceptionHandler.swift in Sources */,
 				20EA707F2775BDC500A7D9D8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
