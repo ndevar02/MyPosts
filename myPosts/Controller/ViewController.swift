@@ -7,15 +7,6 @@
 
 import UIKit
 
-class TableViewCell : UITableViewCell {
-    
-    
-    @IBOutlet weak var lblDesrciption: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblId: UILabel!
-}
-
-
 class ViewController: UIViewController {
     
     var jsonArray = [JsonData]()
@@ -23,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var tblMyPosts: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -95,8 +87,9 @@ extension ViewController : UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.lblTitle.text = jsonArray[indexPath.row].title
         cell.lblId.text =  String(jsonArray[indexPath.row].id)
-        cell.lblDesrciption.text =  jsonArray[indexPath.row].body
-        
+        cell.cellDelegate = self
+        cell.index = jsonArray[indexPath.row].id
+        cell.lblDescription.text =  jsonArray[indexPath.row].body
         
         return cell
     }
@@ -117,5 +110,18 @@ extension ViewController : JsonDataDelegate {
         }
         
     }
+    
+}
+extension ViewController : TableCellEdit{
+    func editData(index: Int) {
+        print(index)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+
+    let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController
+
+        self.navigationController?.pushViewController(editAdd, animated: true)
+    }
+    
     
 }
