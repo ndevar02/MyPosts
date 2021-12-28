@@ -155,7 +155,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Posts" id="bxU-ox-f0B">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qr3-ok-yYv"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qr3-ok-yYv">
+                            <connections>
+                                <action selector="goToAddScreen:" destination="BYZ-38-t0r" id="6Bg-fD-eTV"/>
+                                <segue destination="5Qe-y0-ZM6" kind="presentation" identifier="AddScreen" id="igM-ve-JVM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activitySpinner" destination="stm-0r-gB2" id="jc7-v4-NP4"/>
@@ -171,7 +176,7 @@
             <objects>
                 <viewController storyboardIdentifier="EditAddController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Qe-y0-ZM6" customClass="EditAddController" customModule="myPosts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cua-qd-KFC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="edit screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlK-ev-8Rb">
@@ -181,12 +186,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-9u-4GB">
+                                <rect key="frame" x="345" y="30" width="39" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="multiply" catalog="system">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" systemColor="linkColor"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="u9w-C0-gN5" kind="unwind" unwindAction="cancel:" id="pNN-YS-fQG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X8A-oZ-uq3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X8A-oZ-uq3" firstAttribute="trailing" secondItem="MEc-9u-4GB" secondAttribute="trailing" constant="30" id="76K-uO-fIR"/>
+                            <constraint firstItem="MEc-9u-4GB" firstAttribute="top" secondItem="X8A-oZ-uq3" secondAttribute="top" constant="30" id="8Ij-si-qec"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smW-iO-Cy7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="u9w-C0-gN5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2682.608695652174" y="61.607142857142854"/>
         </scene>
@@ -210,7 +232,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

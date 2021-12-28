@@ -40,6 +40,14 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func goToAddScreen(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "AddScreen", sender: sender)
+
+    }
+    
+    @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+    }
 }
 
 
@@ -100,7 +108,7 @@ extension ViewController : UITableViewDataSource{
 
 extension ViewController : JsonDataDelegate {
     func updateData(jsonDataArray: [JsonData]) {
-        print("i am in delegate method")
+       
         jsonArray = jsonDataArray
         DispatchQueue.main.async {
             
