@@ -80,4 +80,38 @@ struct JsonService {
         task.resume()
     }
     
+    
+    public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Error?)->()){
+        print("in service")
+        guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
+        let uploadDataModel = JsonData(id: id, title: title, body: description,userId: id)
+               
+               // Convert model to JSON data
+               guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+                   print("Error: Trying to convert model to JSON data")
+                   return
+               }
+               
+               // Create the request
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "PUT"
+        
+        urlRequest.httpBody = jsonData
+        
+        // Add other verbs here
+        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+            if error != nil {
+                ExceptionHandler.printError(message: error!.localizedDescription)
+            }
+            else
+            {
+                print("success")
+            }
+            
+        }
+        task.resume()
+    }
+    
 }

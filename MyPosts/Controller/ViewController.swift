@@ -16,23 +16,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var tblMyPosts: UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         tblMyPosts.delegate = self
         tblMyPosts.dataSource = self
         service.delegate = self
-        service.getJsonData { error in
-            if error != nil {
-                ExceptionHandler.printError(message: error!.localizedDescription)
-            }
-            
-        }
+        
 
         tblMyPosts.rowHeight = UITableView.automaticDimension
         tblMyPosts.estimatedRowHeight = 200
         activitySpinner.startAnimating()
         activitySpinner.hidesWhenStopped = true
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print("in reload")
+        service.getJsonData { error in
+            if error != nil {
+                ExceptionHandler.printError(message: error!.localizedDescription)
+            }
+            
+        }
     }
     
 

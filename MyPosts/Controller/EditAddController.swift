@@ -9,6 +9,8 @@ import UIKit
 
 class EditAddController: UIViewController {
     
+   
+    @IBOutlet weak var btnUpdateAndsave: UIButton!
     @IBOutlet weak var txtTileCharacter: UILabel!
     
     @IBOutlet weak var txtDescriptionCharacter: UILabel!
@@ -34,15 +36,24 @@ class EditAddController: UIViewController {
     
     
     private func showEdit() {
-        //btnExit.isHidden = true
+       
         txtTitle.text = editData?.title
         txtTitle.isScrollEnabled = true
+        btnExit.isHidden = true
         
         txtDescription.text = editData?.body
         txtDescription.isScrollEnabled = true
         lblId.text = String(editData!.id)
         
         
+    }
+    @IBAction func updateAndSave(_ sender: Any) {
+        print(" i am here")
+    var service = JsonService()
+        service.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { error in
+            print(error)
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     /*

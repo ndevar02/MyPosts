@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JsonData : Decodable{
+struct JsonData : Codable{
     let id : Int
     let title : String
     let body : String
