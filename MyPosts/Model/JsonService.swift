@@ -62,7 +62,7 @@ struct JsonService {
     
     
     
-    public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
+    public func deleteJsonData(id: Int, completion:@escaping(URLResponse?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
         

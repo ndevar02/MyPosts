@@ -25,6 +25,7 @@ class ViewController: UIViewController {
             if error != nil {
                 ExceptionHandler.printError(message: error!.localizedDescription)
             }
+            
         }
 
         tblMyPosts.rowHeight = UITableView.automaticDimension
@@ -56,13 +57,15 @@ extension ViewController : UITableViewDelegate{
             let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
                 
-                self.service.deleteJsonData(id:indexPath.row) { (error) in
-                    if let err = error{
-                        print(err)
+                self.service.deleteJsonData(id:indexPath.row) { (response) in
+                    if response != nil {
+                        
+                    
                     }
                 }
                 self.jsonArray.remove(at: indexPath.row)
                 self.tblMyPosts.reloadData()
+                
                 
             })
             alert.addAction(yesAction)
