@@ -93,7 +93,8 @@ extension ViewController : UITableViewDataSource{
         cell.lblTitle.text = jsonArray[indexPath.row].title
         cell.lblId.text =  String(jsonArray[indexPath.row].id)
         cell.cellDelegate = self
-        cell.index = jsonArray[indexPath.row].id
+        cell.jsonDataToBeEdited = jsonArray[indexPath.row]
+        //cell.index = jsonArray[indexPath.row].id
         cell.lblDescription.text =  jsonArray[indexPath.row].body
         
         return cell
@@ -118,11 +119,17 @@ extension ViewController : JsonDataDelegate {
     
 }
 extension ViewController : TableCellEdit{
-    func editData(index: Int) {
+    func editData(jsonDataToBeEdited: JsonData?) {
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController
+        editAdd.isEdit = true
+        if let edData = jsonDataToBeEdited {
+            editAdd.editData = edData
+        }
+        
+       
         
         self.navigationController?.pushViewController(editAdd, animated: true)
     }

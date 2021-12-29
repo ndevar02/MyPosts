@@ -8,17 +8,19 @@
 import UIKit
 
 protocol TableCellEdit{
-    func editData(index : Int)
+    func editData(jsonDataToBeEdited : JsonData?)
 }
 
 class TableViewCell: UITableViewCell {
     
     var cellDelegate : TableCellEdit?
-    var index = 0
+   
+    var jsonDataToBeEdited : JsonData?
     var controller = self
     
+    
     @IBAction func clickMeToEdit(_ sender: Any) {
-        cellDelegate?.editData(index: index)
+        cellDelegate?.editData(jsonDataToBeEdited: jsonDataToBeEdited)
         
     }
     
