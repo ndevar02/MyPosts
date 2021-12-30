@@ -12,7 +12,7 @@
         <!--My Posts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myPosts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="myPosts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,7 +341,7 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="updateAndSave:" destination="5Qe-y0-ZM6" eventType="touchUpInside" id="Y8e-1W-0mq"/>
+                                                    <action selector="updateAndSave:" destination="5Qe-y0-ZM6" eventType="touchUpInside" id="pdg-pF-yqs"/>
                                                     <segue destination="u9w-C0-gN5" kind="unwind" unwindAction="cancel:" id="aaA-kX-hhg"/>
                                                 </connections>
                                             </button>

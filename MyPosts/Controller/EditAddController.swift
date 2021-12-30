@@ -12,29 +12,48 @@ class EditAddController: UIViewController {
     
     @IBAction func updateAndSave(_ sender: UIButton) {
         
-        
+       
         let service = JsonService()
-        if sender.title(for: .normal)! == "SAVE"{
+        
+        if (sender.title(for: .normal)!) == "Save"{
             print("in save")
             service.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { error in
-                print(error)
+                
+                if error == nil {
+                    DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                    }
+                    
+                }
+                else
+                {
+                    ExceptionHandler.printError(message: error!.localizedDescription)
+                }
             }
-            //self.performSegue(withIdentifier: "unwindToSegue", sender: self)
+            
         }
         else {
             
-            print("edit")
+            
             service.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { error in
-                print(error)
+                if error == nil {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+                else
+                {
+                    ExceptionHandler.printError(message: error!.localizedDescription)
+                }
             }
-            self.navigationController?.popViewController(animated: true)
+            
         }
     }
     
     @IBOutlet weak var btnSaveAndUpdate: UIButton!
     @IBOutlet weak var viewId: UIView!
     @IBOutlet weak var lblScreen: UILabel!
-
+    
     @IBOutlet weak var txtTileCharacter: UILabel!
     
     @IBOutlet weak var txtDescriptionCharacter: UILabel!
@@ -87,24 +106,12 @@ class EditAddController: UIViewController {
         btnSaveAndUpdate.setTitle("Update", for: .normal)
         
     }
-   
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
 extension EditAddController : UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
-        print(textView.tag)
         
         if textView.tag == 1 {
             
@@ -120,7 +127,6 @@ extension EditAddController : UITextViewDelegate{
         // Its backspace
         if text == ""
         {
-            
             
             return true
         }

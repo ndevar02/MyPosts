@@ -22,9 +22,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         tblMyPosts.delegate = self
         tblMyPosts.dataSource = self
-        service.delegate = self
         
-
         tblMyPosts.rowHeight = UITableView.automaticDimension
         tblMyPosts.estimatedRowHeight = 200
         activitySpinner.startAnimating()
@@ -34,10 +32,23 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        print("in reload")
-        service.getJsonData { error in
-            if error != nil {
-                ExceptionHandler.printError(message: error!.localizedDescription)
+      performService()
+
+    }
+    
+    private func performService()
+    {
+        service.getJsonData { res in
+            switch res {
+            case .failure(let error):
+                ExceptionHandler.printError(message: error.localizedDescription)
+            case .success(let results) :
+                self.jsonArray = results
+                DispatchQueue.main.async {
+                print("in reload")
+                self.tblMyPosts.reloadData()
+                self.activitySpinner.stopAnimating()
+                }
             }
             
         }
@@ -51,6 +62,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
+        performService()
+        
     }
 }
 
@@ -65,17 +78,21 @@ extension ViewController : UITableViewDelegate{
             let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
                 
-                self.service.deleteJsonData(id:indexPath.row) { (response) in
-                    if response != nil {
+                self.service.deleteJsonData(id:indexPath.row) {  (error) in
+                    if let err = error {
+                        ExceptionHandler.printError(message: err.localizedDescription)
+                    }
+                    else
+                    {
+                        DispatchQueue.main.async {
+                            self.jsonArray.remove(at: indexPath.row)
+                        self.tblMyPosts.reloadData()
                         
-                    
                     }
                 }
-                self.jsonArray.remove(at: indexPath.row)
-                self.tblMyPosts.reloadData()
-                
-                
+                }
             })
+
             alert.addAction(yesAction)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -102,7 +119,6 @@ extension ViewController : UITableViewDataSource{
         cell.lblId.text =  String(jsonArray[indexPath.row].id)
         cell.cellDelegate = self
         cell.jsonDataToBeEdited = jsonArray[indexPath.row]
-        //cell.index = jsonArray[indexPath.row].id
         cell.lblDescription.text =  jsonArray[indexPath.row].body
         
         return cell
@@ -112,20 +128,6 @@ extension ViewController : UITableViewDataSource{
     
 }
 
-extension ViewController : JsonDataDelegate {
-    func updateData(jsonDataArray: [JsonData]) {
-        
-        jsonArray = jsonDataArray
-        DispatchQueue.main.async {
-            
-            self.tblMyPosts.reloadData()
-            self.activitySpinner.stopAnimating()
-            
-        }
-        
-    }
-    
-}
 extension ViewController : TableCellEdit{
     func editData(jsonDataToBeEdited: JsonData?) {
         
@@ -136,11 +138,6 @@ extension ViewController : TableCellEdit{
         if let edData = jsonDataToBeEdited {
             editAdd.editData = edData
         }
-        
-       
-        
         self.navigationController?.pushViewController(editAdd, animated: true)
     }
-    
-    
 }

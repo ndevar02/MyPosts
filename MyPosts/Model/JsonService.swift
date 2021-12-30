@@ -3,23 +3,20 @@
 //  myPosts
 //
 //  Created by Nithya Devarajan on 27/12/21.
-//
+
 
 import Foundation
 
 
-protocol JsonDataDelegate{
-    func updateData(jsonDataArray : [JsonData])
-}
-
 struct JsonService {
     let jsonUrl = "https://jsonplaceholder.typicode.com/posts"
-    var delegate: JsonDataDelegate?
+    //var delegate: JsonDataDelegate?
     
     private func parsejson(jsonData : Data) -> [JsonData]? {
         
         let decoder = JSONDecoder()
         do{
+            
             let value = try decoder.decode([JsonData].self, from: jsonData)
             
             return value
@@ -32,7 +29,7 @@ struct JsonService {
     }
     
     
-    public func getJsonData(completion:@escaping(Error?)->()){
+    public func getJsonData(completion:@escaping (Result<[JsonData],Error>)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
         
@@ -46,23 +43,24 @@ struct JsonService {
                 
                 if let safeData = data {
                     let result = parsejson(jsonData: safeData)
-                    self.delegate?.updateData(jsonDataArray: result!)
+                    if result != nil {
+                        completion(.success(result!))
+                    }
                 }
-                
             }
             else
             {
-                ExceptionHandler.printError(message: error!.localizedDescription)
+                completion(.failure(error!))
             }
-            
         }
+        
         task.resume()
     }
     
     
     
     
-    public func deleteJsonData(id: Int, completion:@escaping(URLResponse?)->()){
+    public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
         
@@ -72,9 +70,8 @@ struct JsonService {
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-            if error != nil {
-                ExceptionHandler.printError(message: error!.localizedDescription)
-            }
+            
+            completion(error)
             
         }
         task.resume()
@@ -84,33 +81,27 @@ struct JsonService {
     
     
     public func createJsonData(title : String, description : String , completion:@escaping(Error?)->()){
-       
+        
         guard let nsURL = URL(string:jsonUrl) else {return}
         let uploadDataModel = JsonData(id: 0, title: title, body: description,userId: 1)
-               
-               // Convert model to JSON data
-               guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-                   print("Error: Trying to convert model to JSON data")
-                   return
-               }
-               
-               // Create the request
+       
+        // Convert model to JSON data
+        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+            print("Error: Trying to convert model to JSON data")
+            return
+        }
+        
         
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "POST"
         
         urlRequest.httpBody = jsonData
-        
+     
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-            if error != nil {
-                ExceptionHandler.printError(message: error!.localizedDescription)
-            }
-            else
-            {
-                print("success")
-            }
+           
+            completion(error)
             
         }
         task.resume()
@@ -122,14 +113,12 @@ struct JsonService {
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
         let uploadDataModel = JsonData(id: id, title: title, body: description,userId: id)
-               
-               // Convert model to JSON data
-               guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-                   print("Error: Trying to convert model to JSON data")
-                   return
-               }
-               
-               // Create the request
+        
+        // Convert model to JSON data
+        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+            print("Error: Trying to convert model to JSON data")
+            return
+        }
         
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "PUT"
@@ -139,13 +128,7 @@ struct JsonService {
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-            if error != nil {
-                ExceptionHandler.printError(message: error!.localizedDescription)
-            }
-            else
-            {
-                print("success")
-            }
+            completion(error)
             
         }
         task.resume()
