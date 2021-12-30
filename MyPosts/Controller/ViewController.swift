@@ -124,8 +124,6 @@ extension ViewController : UITableViewDataSource{
         return cell
     }
     
-    
-    
 }
 
 extension ViewController : TableCellEdit{

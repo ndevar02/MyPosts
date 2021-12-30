@@ -10,15 +10,12 @@ import Foundation
 
 struct JsonService {
     let jsonUrl = "https://jsonplaceholder.typicode.com/posts"
-    //var delegate: JsonDataDelegate?
     
     private func parsejson(jsonData : Data) -> [JsonData]? {
         
         let decoder = JSONDecoder()
         do{
-            
             let value = try decoder.decode([JsonData].self, from: jsonData)
-            
             return value
         }
         catch{
@@ -28,7 +25,7 @@ struct JsonService {
         
     }
     
-    
+    //http get
     public func getJsonData(completion:@escaping (Result<[JsonData],Error>)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
@@ -36,7 +33,6 @@ struct JsonService {
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "GET"
         
-        // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
             if error == nil {
@@ -59,7 +55,7 @@ struct JsonService {
     
     
     
-    
+    //http delete
     public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
@@ -79,7 +75,7 @@ struct JsonService {
     
     
     
-    
+    //http post
     public func createJsonData(title : String, description : String , completion:@escaping(Error?)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
@@ -108,7 +104,7 @@ struct JsonService {
     }
     
     
-    
+    //http put
     public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Error?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
