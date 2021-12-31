@@ -14,4 +14,7 @@ struct JsonData : Codable{
     let userId : Int
 }
 
+struct listJsonData {
+    static var lstJson = [JsonData]()
+}
 

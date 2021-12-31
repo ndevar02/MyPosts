@@ -76,7 +76,7 @@ struct JsonService {
     
     
     //http post
-    public func createJsonData(title : String, description : String , completion:@escaping(Error?)->()){
+    public func createJsonData(title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
         let uploadDataModel = JsonData(id: 0, title: title, body: description,userId: 1)
@@ -97,18 +97,20 @@ struct JsonService {
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
            
-            completion(error)
+            guard let data = data else {return}
+            
+            completion(data)
             
         }
         task.resume()
     }
     
-    
+
     //http put
-    public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Error?)->()){
+    public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
-        let uploadDataModel = JsonData(id: id, title: title, body: description,userId: id)
+        let uploadDataModel = JsonData(id: id, title: title, body: description,userId: 1)
         
         // Convert model to JSON data
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
@@ -124,7 +126,7 @@ struct JsonService {
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-            completion(error)
+            completion(data)
             
         }
         task.resume()

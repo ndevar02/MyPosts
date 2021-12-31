@@ -64,31 +64,36 @@ class EditAddController: UIViewController {
         let service = JsonService()
         
         if (sender.title(for: .normal)!) == "Save"{
-            service.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { error in
+            service.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { data in
                 
-                if error == nil {
+                if data != nil {
                     DispatchQueue.main.async {
+                        print(String(data:data!,encoding:.utf8))
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
                 else
                 {
-                    ExceptionHandler.printError(message: error!.localizedDescription)
+                    ExceptionHandler.printError(message: "error in create data")
                 }
             }
             
         }
         else {
 
-            service.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { error in
-                if error == nil {
+            service.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
+                
+                if data != nil {
                     DispatchQueue.main.async {
+                        print("in update")
+                        print(String(data:data!,encoding:.utf8))
                         self.navigationController?.popViewController(animated: true)
                     }
                 }
+                
                 else
                 {
-                    ExceptionHandler.printError(message: error!.localizedDescription)
+                    ExceptionHandler.printError(message: "error in update data")
                 }
             }
             

@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     var jsonArray = [JsonData]()
     var service = JsonService()
+   
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var tblMyPosts: UITableView!
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
                 ExceptionHandler.printError(message: error.localizedDescription)
             case .success(let results) :
                 self.jsonArray = results
+                
                 DispatchQueue.main.async {
                 print("in reload")
                 self.tblMyPosts.reloadData()
@@ -53,6 +55,8 @@ class ViewController: UIViewController {
             
         }
     }
+    
+   
     
 
     @IBAction func goToAddScreen(_ sender: UIBarButtonItem) {
