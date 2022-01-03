@@ -43,6 +43,7 @@ class EditAddController: UIViewController {
     
     private func showEdit() {
         
+        self.title = "Edit"
         txtTitle.text = editData?.title
         txtTitle.isScrollEnabled = true
         btnExit.isHidden = true
