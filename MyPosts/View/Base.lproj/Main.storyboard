@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="244" id="u3r-zY-Gqp" customClass="TableViewCell" customModule="myPosts" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="244" id="u3r-zY-Gqp" customClass="MyPostTableCell" customModule="myPosts" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="244"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u3r-zY-Gqp" id="1GR-TS-QgF">
@@ -52,7 +52,7 @@
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
                                                             <connections>
-                                                                <action selector="clickMeToEdit:" destination="u3r-zY-Gqp" eventType="touchUpInside" id="mid-z4-XXU"/>
+                                                                <action selector="myPostsClickToEdit:" destination="u3r-zY-Gqp" eventType="touchUpInside" id="oOR-fQ-4G6"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -137,7 +137,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="btnEdit" destination="62b-Mv-Xkm" id="BaX-UX-gZJ"/>
+                                            <outlet property="btnEdit" destination="62b-Mv-Xkm" id="XrR-1A-1fj"/>
                                             <outlet property="lblDescription" destination="7eb-eQ-FOa" id="IQ6-1m-k4A"/>
                                             <outlet property="lblId" destination="3rl-vm-cui" id="UM3-5l-Ut4"/>
                                             <outlet property="lblTitle" destination="SiP-VH-QIY" id="1cY-ff-3qd"/>

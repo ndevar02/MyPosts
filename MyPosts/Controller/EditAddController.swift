@@ -21,7 +21,7 @@ class EditAddController: UIViewController {
     
     
     var isEdit = false
-    var editData : JsonData?
+    var myPostsDataToBeEdited : JsonData?
     
     override func viewDidLoad() {
         txtTitle.delegate = self
@@ -53,16 +53,16 @@ class EditAddController: UIViewController {
     private func showEdit() {
         
         self.title = "Edit"
-        txtTitle.text = editData?.title
+        txtTitle.text = myPostsDataToBeEdited?.title
         txtTitle.isScrollEnabled = true
        
-        txtDescription.text = editData?.body
+        txtDescription.text = myPostsDataToBeEdited?.body
         txtDescription.isScrollEnabled = true
-        lblId.text = String(editData!.id)
+        lblId.text = String(myPostsDataToBeEdited!.id)
       
         btnSaveAndUpdate.setTitle("Update", for: .normal)
-        txtTileCharacter.text = String(editData!.title.count) + "/80"
-        txtDescriptionCharacter.text = String (editData!.body.count) + "/150"
+        txtTileCharacter.text = String(myPostsDataToBeEdited!.title.count) + "/80"
+        txtDescriptionCharacter.text = String (myPostsDataToBeEdited!.body.count) + "/150"
         
     }
     @IBAction func updateAndSave(_ sender: UIButton) {
@@ -75,7 +75,7 @@ class EditAddController: UIViewController {
                 if data != nil {
                     DispatchQueue.main.async {
                         print(String(data:data!,encoding:.utf8))
-                        self.dismiss(animated: true, completion: nil)
+                        //self.dismiss(animated: true, completion: nil)
                     }
                 }
                 else
@@ -93,7 +93,7 @@ class EditAddController: UIViewController {
                     DispatchQueue.main.async {
                         print("in update")
                         print(String(data:data!,encoding:.utf8))
-                        self.navigationController?.popViewController(animated: true)
+                       // self.navigationController?.popViewController(animated: true)
                     }
                 }
                 

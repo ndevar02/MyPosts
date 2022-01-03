@@ -28,15 +28,11 @@ class ViewController: UIViewController {
         tblMyPosts.estimatedRowHeight = 200
         activitySpinner.startAnimating()
         activitySpinner.hidesWhenStopped = true
+        performService()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-      performService()
-
-    }
-    
+   
     private func performService()
     {
         service.getJsonData { res in
@@ -47,8 +43,9 @@ class ViewController: UIViewController {
                 self.jsonArray = results
                 
                 DispatchQueue.main.async {
-                print("in reload")
+                print("in SERVICE before reload")
                 self.tblMyPosts.reloadData()
+                self.tblMyPosts.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
                 self.activitySpinner.stopAnimating()
                 }
             }
@@ -118,7 +115,7 @@ extension ViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyPostTableCell
         cell.lblTitle.text = jsonArray[indexPath.row].title
         cell.lblId.text =  String(jsonArray[indexPath.row].id)
         cell.cellDelegate = self
@@ -130,16 +127,16 @@ extension ViewController : UITableViewDataSource{
     
 }
 
-extension ViewController : TableCellEdit{
-    func editData(jsonDataToBeEdited: JsonData?) {
-        
+extension ViewController : MyPostTableCellDelegate{
+    func myPostsEditData(myPostsDataToBeEdited: JsonData?) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController
         editAdd.isEdit = true
-        if let edData = jsonDataToBeEdited {
-            editAdd.editData = edData
+        if let myPostsDataToBeEdited = myPostsDataToBeEdited {
+            editAdd.myPostsDataToBeEdited = myPostsDataToBeEdited
         }
         self.navigationController?.pushViewController(editAdd, animated: true)
     }
+
 }

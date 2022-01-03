@@ -7,20 +7,17 @@
 
 import UIKit
 
-protocol TableCellEdit{
-    func editData(jsonDataToBeEdited : JsonData?)
+protocol MyPostTableCellDelegate{
+    func myPostsEditData(myPostsDataToBeEdited : JsonData?)
 }
 
-class TableViewCell: UITableViewCell {
+class MyPostTableCell: UITableViewCell {
     
-    var cellDelegate : TableCellEdit?
-   
+    var cellDelegate : MyPostTableCellDelegate?
     var jsonDataToBeEdited : JsonData?
-    var controller = self
     
-    
-    @IBAction func clickMeToEdit(_ sender: Any) {
-        cellDelegate?.editData(jsonDataToBeEdited: jsonDataToBeEdited)
+    @IBAction func myPostsClickToEdit(_ sender: Any) {
+        cellDelegate?.myPostsEditData(myPostsDataToBeEdited: jsonDataToBeEdited)
         
     }
     
