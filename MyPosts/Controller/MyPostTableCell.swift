@@ -8,13 +8,13 @@
 import UIKit
 
 protocol MyPostTableCellDelegate{
-    func myPostsEditData(myPostsDataToBeEdited : JsonData?)
+    func myPostsEditData(myPostsDataToBeEdited : MyPostData?)
 }
 
 class MyPostTableCell: UITableViewCell {
     
     var cellDelegate : MyPostTableCellDelegate?
-    var jsonDataToBeEdited : JsonData?
+    var jsonDataToBeEdited : MyPostData?
     
     @IBAction func myPostsClickToEdit(_ sender: Any) {
         cellDelegate?.myPostsEditData(myPostsDataToBeEdited: jsonDataToBeEdited)

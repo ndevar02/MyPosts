@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MyPostsController: UIViewController {
     
-    var jsonArray = [JsonData]()
+    var jsonArray = [MyPostData]()
     var service = JsonService()
    
     
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController : UITableViewDelegate{
+extension MyPostsController : UITableViewDelegate{
     
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
@@ -107,7 +107,7 @@ extension ViewController : UITableViewDelegate{
     }
     
 }
-extension ViewController : UITableViewDataSource{
+extension MyPostsController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jsonArray.count
@@ -117,7 +117,7 @@ extension ViewController : UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyPostTableCell
         cell.lblTitle.text = jsonArray[indexPath.row].title
-        cell.lblId.text =  String(jsonArray[indexPath.row].id)
+        cell.lblId.text =  String(jsonArray[indexPath.row].id!)
         cell.cellDelegate = self
         cell.jsonDataToBeEdited = jsonArray[indexPath.row]
         cell.lblDescription.text =  jsonArray[indexPath.row].body
@@ -127,8 +127,8 @@ extension ViewController : UITableViewDataSource{
     
 }
 
-extension ViewController : MyPostTableCellDelegate{
-    func myPostsEditData(myPostsDataToBeEdited: JsonData?) {
+extension MyPostsController : MyPostTableCellDelegate{
+    func myPostsEditData(myPostsDataToBeEdited: MyPostData?) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController

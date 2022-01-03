@@ -11,11 +11,11 @@ import Foundation
 struct JsonService {
     let jsonUrl = "https://jsonplaceholder.typicode.com/posts"
     
-    private func parsejson(jsonData : Data) -> [JsonData]? {
+    private func parsejson(jsonData : Data) -> [MyPostData]? {
         
         let decoder = JSONDecoder()
         do{
-            let value = try decoder.decode([JsonData].self, from: jsonData)
+            let value = try decoder.decode([MyPostData].self, from: jsonData)
             return value
         }
         catch{
@@ -26,7 +26,7 @@ struct JsonService {
     }
     
     //http get
-    public func getJsonData(completion:@escaping (Result<[JsonData],Error>)->()){
+    public func getJsonData(completion:@escaping (Result<[MyPostData],Error>)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
         
@@ -79,7 +79,7 @@ struct JsonService {
     public func createJsonData(title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:jsonUrl) else {return}
-        let uploadDataModel = JsonData(id: 0, title: title, body: description,userId: 1)
+        let uploadDataModel = MyPostData(id: 0, title: title, body: description,userId: 1)
        
         // Convert model to JSON data
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
@@ -110,7 +110,7 @@ struct JsonService {
     public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:jsonUrl+"/\(id)") else {return}
-        let uploadDataModel = JsonData(id: id, title: title, body: description,userId: 1)
+        let uploadDataModel = MyPostData(id: id, title: title, body: description,userId: 1)
         
         // Convert model to JSON data
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
