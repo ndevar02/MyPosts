@@ -39,7 +39,16 @@ class EditAddController: UIViewController {
         txtDescription.text = ""
         viewId.isHidden = true
         
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backAction))
+
+                self.navigationItem.leftBarButtonItem = backButton
+        
     }
+    
+    @objc func backAction(){
+        self.dismiss(animated: true, completion: nil)
+    }
+  
     
     private func showEdit() {
         
@@ -60,7 +69,7 @@ class EditAddController: UIViewController {
 
         let service = JsonService()
         
-        if (sender.title(for: .normal)!) == "Save"{
+        if !isEdit {
             service.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { data in
                 
                 if data != nil {

@@ -380,7 +380,9 @@
                             <constraint firstItem="0TB-Np-jdB" firstAttribute="leading" secondItem="X8A-oZ-uq3" secondAttribute="leading" id="oZs-O0-DZh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Save" id="3Yd-Ti-08h"/>
+                    <navigationItem key="navigationItem" title="Save" id="3Yd-Ti-08h">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5wu-fC-Pl0"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnExit" destination="MEc-9u-4GB" id="ziK-Pm-MDh"/>
                         <outlet property="btnSaveAndUpdate" destination="0Et-zA-ygo" id="3X4-DF-CA1"/>
