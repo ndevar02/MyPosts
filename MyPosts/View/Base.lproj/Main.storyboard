@@ -184,7 +184,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="752"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pb-mT-5ql">
-                                        <rect key="frame" x="10" y="50" width="394" height="20"/>
+                                        <rect key="frame" x="10" y="12" width="394" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lea-k8-h4Y">
                                                 <rect key="frame" x="190" y="5" width="194" height="20.5"/>
@@ -212,7 +212,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpR-AI-dEd">
-                                        <rect key="frame" x="10" y="165" width="394" height="81"/>
+                                        <rect key="frame" x="10" y="127" width="394" height="81"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fa-TI-Nhs">
                                                 <rect key="frame" x="10" y="10" width="100" height="21"/>
@@ -255,7 +255,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3RT-FZ-yG2">
-                                        <rect key="frame" x="10" y="75" width="394" height="80"/>
+                                        <rect key="frame" x="10" y="37" width="394" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rr-qj-Puj">
                                                 <rect key="frame" x="10" y="10" width="100" height="21"/>
@@ -297,39 +297,14 @@
                                             <constraint firstItem="7Rr-qj-Puj" firstAttribute="leading" secondItem="3RT-FZ-yG2" secondAttribute="leading" constant="10" id="wc7-5P-6zT"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNn-ER-cwv">
-                                        <rect key="frame" x="10" y="5" width="353" height="40"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="edit screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlK-ev-8Rb">
-                                                <rect key="frame" x="134" y="10" width="85" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEc-9u-4GB">
-                                                <rect key="frame" x="309" y="5" width="39" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="multiply" catalog="system">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="strokeColor" systemColor="linkColor"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="u9w-C0-gN5" kind="unwind" identifier="unwindToSegue" unwindAction="cancel:" id="pNN-YS-fQG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNn-ER-cwv">
+                                        <rect key="frame" x="10" y="5" width="353" height="2"/>
                                         <constraints>
-                                            <constraint firstItem="MEc-9u-4GB" firstAttribute="top" secondItem="cNn-ER-cwv" secondAttribute="top" constant="5" id="MnI-C6-t8W"/>
-                                            <constraint firstItem="hlK-ev-8Rb" firstAttribute="centerX" secondItem="cNn-ER-cwv" secondAttribute="centerX" id="Pgn-Vz-Ssv"/>
-                                            <constraint firstAttribute="trailing" secondItem="MEc-9u-4GB" secondAttribute="trailing" constant="5" id="a5B-EE-EO0"/>
-                                            <constraint firstItem="hlK-ev-8Rb" firstAttribute="top" secondItem="cNn-ER-cwv" secondAttribute="top" constant="10" id="eJT-22-3GQ"/>
-                                            <constraint firstItem="MEc-9u-4GB" firstAttribute="leading" secondItem="hlK-ev-8Rb" secondAttribute="trailing" constant="90" id="f3w-Ya-2JK"/>
-                                            <constraint firstAttribute="height" constant="40" id="iiS-Cv-O9v"/>
+                                            <constraint firstAttribute="height" constant="2" id="iiS-Cv-O9v"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-yh-gIU">
-                                        <rect key="frame" x="10" y="256" width="394" height="486"/>
+                                        <rect key="frame" x="10" y="218" width="394" height="524"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Et-zA-ygo">
                                                 <rect key="frame" x="164" y="15" width="67" height="31"/>
@@ -384,10 +359,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="5wu-fC-Pl0"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btnExit" destination="MEc-9u-4GB" id="ziK-Pm-MDh"/>
                         <outlet property="btnSaveAndUpdate" destination="0Et-zA-ygo" id="3X4-DF-CA1"/>
                         <outlet property="lblId" destination="Lea-k8-h4Y" id="777-ne-RsV"/>
-                        <outlet property="lblScreen" destination="hlK-ev-8Rb" id="Xic-IA-1dy"/>
                         <outlet property="txtDescription" destination="VKY-We-fuF" id="BgY-ID-I75"/>
                         <outlet property="txtDescriptionCharacter" destination="rLq-g7-r2u" id="pOi-j4-CgP"/>
                         <outlet property="txtTileCharacter" destination="HDW-KG-4IN" id="qYc-e8-HMT"/>
@@ -438,16 +411,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -11,12 +11,12 @@ class EditAddController: UIViewController {
 
     @IBOutlet weak var btnSaveAndUpdate: UIButton!
     @IBOutlet weak var viewId: UIView!
-    @IBOutlet weak var lblScreen: UILabel!
+
     @IBOutlet weak var txtTileCharacter: UILabel!
     @IBOutlet weak var txtDescriptionCharacter: UILabel!
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var txtTitle: UITextView!
-    @IBOutlet weak var btnExit: UIButton!
+
     @IBOutlet weak var lblId: UILabel!
     
     
@@ -32,9 +32,9 @@ class EditAddController: UIViewController {
     }
     
     private func saveButton(){
-        lblScreen.text = "Save"
+       
         btnSaveAndUpdate.setTitle("Save", for: .normal)
-        btnExit.isHidden = false
+       
         txtTitle.text = ""
         txtDescription.text = ""
         viewId.isHidden = true
@@ -55,11 +55,11 @@ class EditAddController: UIViewController {
         self.title = "Edit"
         txtTitle.text = editData?.title
         txtTitle.isScrollEnabled = true
-        btnExit.isHidden = true
+       
         txtDescription.text = editData?.body
         txtDescription.isScrollEnabled = true
         lblId.text = String(editData!.id)
-        lblScreen.text = "EDIT"
+      
         btnSaveAndUpdate.setTitle("Update", for: .normal)
         txtTileCharacter.text = String(editData!.title.count) + "/80"
         txtDescriptionCharacter.text = String (editData!.body.count) + "/150"
