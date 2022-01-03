@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2062178727797D360023FB4A /* JsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178627797D360023FB4A /* JsonService.swift */; };
+		2062178727797D360023FB4A /* MyPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178627797D360023FB4A /* MyPostsService.swift */; };
 		2062178927797D7E0023FB4A /* MyPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178827797D7E0023FB4A /* MyPostData.swift */; };
 		20C07624277AD9C800EB22F7 /* MyPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07623277AD9C800EB22F7 /* MyPostTableCell.swift */; };
 		20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07625277AEFB400EB22F7 /* EditAddController.swift */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2062178627797D360023FB4A /* JsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonService.swift; sourceTree = "<group>"; };
+		2062178627797D360023FB4A /* MyPostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsService.swift; sourceTree = "<group>"; };
 		2062178827797D7E0023FB4A /* MyPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostData.swift; sourceTree = "<group>"; };
 		20C07623277AD9C800EB22F7 /* MyPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableCell.swift; sourceTree = "<group>"; };
 		20C07625277AEFB400EB22F7 /* EditAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		20EA70912775BE9A00A7D9D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2062178627797D360023FB4A /* JsonService.swift */,
+				2062178627797D360023FB4A /* MyPostsService.swift */,
 				2062178827797D7E0023FB4A /* MyPostData.swift */,
 				20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */,
 			);
@@ -179,7 +179,7 @@
 			files = (
 				20EA70812775BDC500A7D9D8 /* MyPostsController.swift in Sources */,
 				2062178927797D7E0023FB4A /* MyPostData.swift in Sources */,
-				2062178727797D360023FB4A /* JsonService.swift in Sources */,
+				2062178727797D360023FB4A /* MyPostsService.swift in Sources */,
 				20C07624277AD9C800EB22F7 /* MyPostTableCell.swift in Sources */,
 				20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */,
 				20EA707D2775BDC500A7D9D8 /* AppDelegate.swift in Sources */,

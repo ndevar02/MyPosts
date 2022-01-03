@@ -10,7 +10,7 @@ import UIKit
 class MyPostsController: UIViewController {
     
     var jsonArray = [MyPostData]()
-    var service = JsonService()
+    let mypostService = MyPostsService()
    
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
@@ -35,7 +35,7 @@ class MyPostsController: UIViewController {
    
     private func performService()
     {
-        service.getJsonData { res in
+        mypostService.getJsonData { res in
             switch res {
             case .failure(let error):
                 ExceptionHandler.printError(message: error.localizedDescription)
@@ -79,7 +79,7 @@ extension MyPostsController : UITableViewDelegate{
             let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
                 
-                self.service.deleteJsonData(id:indexPath.row) {  (error) in
+                self.mypostService.deleteJsonData(id:indexPath.row) {  (error) in
                     if let err = error {
                         ExceptionHandler.printError(message: err.localizedDescription)
                     }

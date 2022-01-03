@@ -70,10 +70,10 @@ class EditAddController: UIViewController {
     }
     @IBAction func updateAndSave(_ sender: UIButton) {
         
-        let service = JsonService()
+        let mypostService = MyPostsService()
         
         if !isEdit {
-            service.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { data in
+            mypostService.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { data in
                 
                 if data != nil {
                     DispatchQueue.main.async {
@@ -90,7 +90,7 @@ class EditAddController: UIViewController {
         }
         else {
             
-            service.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
+            mypostService.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
                 
                 if data != nil {
                     DispatchQueue.main.async {
