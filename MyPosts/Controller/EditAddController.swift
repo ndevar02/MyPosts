@@ -27,14 +27,8 @@ class EditAddController: UIViewController {
         txtTitle.delegate = self
         txtDescription.delegate = self
         super.viewDidLoad()
-        if isEdit == true {
-            showEdit()
-        }
-        else
-        {
-            saveButton()
-        }
-        
+        isEdit ? showEdit() : saveButton()
+
     }
     
     private func saveButton(){
@@ -57,6 +51,8 @@ class EditAddController: UIViewController {
         lblId.text = String(editData!.id)
         lblScreen.text = "EDIT"
         btnSaveAndUpdate.setTitle("Update", for: .normal)
+        txtTileCharacter.text = String(editData!.title.count) + "/80"
+        txtDescriptionCharacter.text = String (editData!.body.count) + "/150"
         
     }
     @IBAction func updateAndSave(_ sender: UIButton) {
@@ -104,18 +100,20 @@ class EditAddController: UIViewController {
 
 extension EditAddController : UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
+      
         
-        if textView.tag == 1 {
+        if textView == txtTitle{
             
-            txtTileCharacter.text = "character count : " + String(textView.text.count)
+            txtTileCharacter.text = String(textView.text.count)+"/80"
         }
         else
         {
-            txtDescriptionCharacter.text = "character count : " + String(textView.text.count)
+            txtDescriptionCharacter.text = String(textView.text.count) + "/150"
         }
         
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+      
         // Its backspace
         if text == ""
         {
@@ -123,7 +121,7 @@ extension EditAddController : UITextViewDelegate{
             return true
         }
         else {
-            if textView.tag == 1 {
+            if textView == txtTitle {
                 let numberOfChars = textView.text.count // for Swift use count(newText)
                 return numberOfChars < 80;
             }
