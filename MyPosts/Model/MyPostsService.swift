@@ -76,19 +76,12 @@ struct MyPostsService {
     public func createMyPost(title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:myPostsUrl) else {return}
-        let uploadDataModel = MyPostData(id: 0, title: title, body: description,userId: 1)
-        
-        // Convert model to JSON data
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-            print("Error: Trying to convert model to JSON data")
-            return
-        }
         
         
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "POST"
         
-        urlRequest.httpBody = jsonData
+       urlRequest.httpBody = convertMyPostToJson(id: 0, title:title, description: description)
         
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
@@ -102,23 +95,28 @@ struct MyPostsService {
         task.resume()
     }
     
+    private func convertMyPostToJson(id : Int, title : String, description : String) -> Data?{
+        
+        let uploadDataModel = MyPostData(id: id, title: title, body: description,userId: 1)
+        // Convert model to JSON data
+        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
+            print("Error: Trying to convert model to JSON data")
+            return nil
+        }
+        return jsonData
+        
+    }
     
     //http put
     public func updateMyPost(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:myPostsUrl+"/\(id)") else {return}
-        let uploadDataModel = MyPostData(id: id, title: title, body: description,userId: 1)
         
-        // Convert model to JSON data
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-            print("Error: Trying to convert model to JSON data")
-            return
-        }
-        
+
         var urlRequest = URLRequest(url: nsURL)
         urlRequest.httpMethod = "PUT"
         
-        urlRequest.httpBody = jsonData
+        urlRequest.httpBody = convertMyPostToJson(id: id, title:title, description: description)
         
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
