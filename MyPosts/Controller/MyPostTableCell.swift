@@ -3,7 +3,7 @@
 //  myPosts
 //
 //  Created by Nithya Devarajan on 28/12/21.
-//
+
 
 import UIKit
 
@@ -13,8 +13,8 @@ protocol MyPostTableCellDelegate{
 
 class MyPostTableCell: UITableViewCell {
     
-   public var cellDelegate : MyPostTableCellDelegate?
-   public var jsonDataToBeEdited : MyPostData?
+    public var cellDelegate : MyPostTableCellDelegate?
+    public var jsonDataToBeEdited : MyPostData?
     
     @IBAction func myPostsClickToEdit(_ sender: Any) {
         cellDelegate?.myPostsEditData(myPostsDataToBeEdited: jsonDataToBeEdited)

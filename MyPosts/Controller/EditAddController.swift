@@ -11,12 +11,10 @@ class EditAddController: UIViewController {
     
     @IBOutlet weak var btnSaveAndUpdate: UIButton!
     @IBOutlet weak var viewId: UIView!
-    
     @IBOutlet weak var txtTileCharacter: UILabel!
     @IBOutlet weak var txtDescriptionCharacter: UILabel!
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var txtTitle: UITextView!
-    
     @IBOutlet weak var lblId: UILabel!
     
     
@@ -34,7 +32,6 @@ class EditAddController: UIViewController {
     private func saveButton(){
         
         btnSaveAndUpdate.setTitle("Save", for: .normal)
-        
         txtTitle.text = ""
         txtDescription.text = ""
         viewId.isHidden = true
@@ -53,12 +50,8 @@ class EditAddController: UIViewController {
     private func showEdit() {
         
         self.title = "Edit"
-      
         txtTitle.isScrollEnabled = true
-        
-        
         txtDescription.isScrollEnabled = true
-        
         txtTitle.text = myPostsDataToBeEdited?.title
         txtDescription.text = myPostsDataToBeEdited?.body
         lblId.text = String(myPostsDataToBeEdited!.id ?? 0 )
@@ -95,7 +88,7 @@ class EditAddController: UIViewController {
                     DispatchQueue.main.async {
                         print("in update")
                         print(String(data:data!,encoding:.utf8))
-                        // self.navigationController?.popViewController(animated: true)
+                       
                     }
                 }
                 

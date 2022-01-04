@@ -9,9 +9,9 @@ import UIKit
 
 class MyPostsController: UIViewController {
     
-   private var myPosts = [MyPostData]()
-   private let mypostService = MyPostsService()
-   
+    private var myPosts = [MyPostData]()
+    private let mypostService = MyPostsService()
+    
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var tblMyPosts: UITableView!
@@ -28,21 +28,21 @@ class MyPostsController: UIViewController {
         tblMyPosts.estimatedRowHeight = 200
         activitySpinner.startAnimating()
         activitySpinner.hidesWhenStopped = true
-        performService()
+        performMyPostsService()
         
     }
     
-   
-    private func performService()
+    
+    private func performMyPostsService()
     {
         mypostService.getMyPosts { (myPostArray , error ) in
             if myPostArray.count > 0 {
                 DispatchQueue.main.async {
-                self.myPosts = myPostArray
-                print("in SERVICE before reload")
-                self.tblMyPosts.reloadData()
-                self.tblMyPosts.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
-                self.activitySpinner.stopAnimating()
+                    self.myPosts = myPostArray
+                    print("in SERVICE before reload")
+                    self.tblMyPosts.reloadData()
+                    self.tblMyPosts.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
+                    self.activitySpinner.stopAnimating()
                     
                 }
                 
@@ -53,9 +53,9 @@ class MyPostsController: UIViewController {
         }
     }
     
-   
     
-
+    
+    
     @IBAction func goToAddScreen(_ sender: UIBarButtonItem) {
         
         performSegue(withIdentifier: "AddScreen", sender: sender)
@@ -63,7 +63,7 @@ class MyPostsController: UIViewController {
     }
     
     @IBAction func cancel(_ unwindSegue: UIStoryboardSegue) {
-        performService()
+        performMyPostsService()
         
     }
 }
@@ -87,13 +87,13 @@ extension MyPostsController : UITableViewDelegate{
                     {
                         DispatchQueue.main.async {
                             self.myPosts.remove(at: indexPath.row)
-                        self.tblMyPosts.reloadData()
-                        
+                            self.tblMyPosts.reloadData()
+                            
+                        }
                     }
                 }
-                }
             })
-
+            
             alert.addAction(yesAction)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -138,5 +138,5 @@ extension MyPostsController : MyPostTableCellDelegate{
         }
         self.navigationController?.pushViewController(editAdd, animated: true)
     }
-
+    
 }

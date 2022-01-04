@@ -11,11 +11,11 @@ import Foundation
 struct MyPostsService {
     let myPostsUrl = "https://jsonplaceholder.typicode.com/posts"
     
-    private func parsejson(jsonData : Data) -> [MyPostData]? {
+    private func parsejson(myPostData : Data) -> [MyPostData]? {
         
         let decoder = JSONDecoder()
         do{
-            let value = try decoder.decode([MyPostData].self, from: jsonData)
+            let value = try decoder.decode([MyPostData].self, from: myPostData)
             return value
         }
         catch{
@@ -38,7 +38,7 @@ struct MyPostsService {
             if error == nil {
                 
                 if let safeData = data {
-                    let result = parsejson(jsonData: safeData)
+                    let result = parsejson(myPostData: safeData)
                     if result != nil {
                         completion(result!,error)
                     }
@@ -77,7 +77,7 @@ struct MyPostsService {
         
         guard let nsURL = URL(string:myPostsUrl) else {return}
         let uploadDataModel = MyPostData(id: 0, title: title, body: description,userId: 1)
-       
+        
         // Convert model to JSON data
         guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
             print("Error: Trying to convert model to JSON data")
@@ -89,11 +89,11 @@ struct MyPostsService {
         urlRequest.httpMethod = "POST"
         
         urlRequest.httpBody = jsonData
-     
+        
         // Add other verbs here
         let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) in
-           
+            
             guard let data = data else {return}
             
             completion(data)
@@ -102,7 +102,7 @@ struct MyPostsService {
         task.resume()
     }
     
-
+    
     //http put
     public func updateMyPost(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
         
