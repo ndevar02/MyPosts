@@ -9,8 +9,8 @@ import UIKit
 
 class MyPostsController: UIViewController {
     
-    var jsonArray = [MyPostData]()
-    let mypostService = MyPostsService()
+   private var myPosts = [MyPostData]()
+   private let mypostService = MyPostsService()
    
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
@@ -35,21 +35,21 @@ class MyPostsController: UIViewController {
    
     private func performService()
     {
-        mypostService.getJsonData { res in
-            switch res {
-            case .failure(let error):
-                ExceptionHandler.printError(message: error.localizedDescription)
-            case .success(let results) :
-                self.jsonArray = results
-                
+        mypostService.getMyPosts { (myPostArray , error ) in
+            if myPostArray.count > 0 {
                 DispatchQueue.main.async {
+                self.myPosts = myPostArray
                 print("in SERVICE before reload")
                 self.tblMyPosts.reloadData()
                 self.tblMyPosts.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
                 self.activitySpinner.stopAnimating()
+                    
                 }
+                
             }
-            
+            else{
+                ExceptionHandler.printError(message: "Error in get Api")
+            }
         }
     }
     
@@ -79,14 +79,14 @@ extension MyPostsController : UITableViewDelegate{
             let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
                 
-                self.mypostService.deleteJsonData(id:indexPath.row) {  (error) in
+                self.mypostService.deleteMyPosts(id:indexPath.row) {  (error) in
                     if let err = error {
                         ExceptionHandler.printError(message: err.localizedDescription)
                     }
                     else
                     {
                         DispatchQueue.main.async {
-                            self.jsonArray.remove(at: indexPath.row)
+                            self.myPosts.remove(at: indexPath.row)
                         self.tblMyPosts.reloadData()
                         
                     }
@@ -110,17 +110,17 @@ extension MyPostsController : UITableViewDelegate{
 extension MyPostsController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jsonArray.count
+        return myPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyPostTableCell
-        cell.lblTitle.text = jsonArray[indexPath.row].title
-        cell.lblId.text =  String(jsonArray[indexPath.row].id!)
+        cell.lblTitle.text = myPosts[indexPath.row].title
+        cell.lblId.text =  String(myPosts[indexPath.row].id!)
         cell.cellDelegate = self
-        cell.jsonDataToBeEdited = jsonArray[indexPath.row]
-        cell.lblDescription.text =  jsonArray[indexPath.row].body
+        cell.jsonDataToBeEdited = myPosts[indexPath.row]
+        cell.lblDescription.text =  myPosts[indexPath.row].body
         
         return cell
     }

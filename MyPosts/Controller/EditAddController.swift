@@ -20,8 +20,8 @@ class EditAddController: UIViewController {
     @IBOutlet weak var lblId: UILabel!
     
     
-    var isEdit = false
-    var myPostsDataToBeEdited : MyPostData?
+    public var isEdit = false
+    public var myPostsDataToBeEdited : MyPostData?
     
     override func viewDidLoad() {
         txtTitle.delegate = self
@@ -73,12 +73,11 @@ class EditAddController: UIViewController {
         let mypostService = MyPostsService()
         
         if !isEdit {
-            mypostService.createJsonData(title: txtTitle.text!, description: txtDescription.text!) { data in
+            mypostService.createMyPost(title: txtTitle.text!, description: txtDescription.text!) { data in
                 
                 if data != nil {
                     DispatchQueue.main.async {
                         print(String(data:data!,encoding:.utf8))
-                        //self.dismiss(animated: true, completion: nil)
                     }
                 }
                 else
@@ -90,7 +89,7 @@ class EditAddController: UIViewController {
         }
         else {
             
-            mypostService.updateJsonData(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
+            mypostService.updateMyPost(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
                 
                 if data != nil {
                     DispatchQueue.main.async {

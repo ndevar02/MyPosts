@@ -26,7 +26,7 @@ struct MyPostsService {
     }
     
     //http get
-    public func getJsonData(completion:@escaping (Result<[MyPostData],Error>)->()){
+    public func getMyPosts(completion:@escaping ([MyPostData],Error?)->()){
         
         guard let nsURL = URL(string:myPostsUrl) else {return}
         
@@ -40,14 +40,11 @@ struct MyPostsService {
                 if let safeData = data {
                     let result = parsejson(jsonData: safeData)
                     if result != nil {
-                        completion(.success(result!))
+                        completion(result!,error)
                     }
                 }
             }
-            else
-            {
-                completion(.failure(error!))
-            }
+            
         }
         
         task.resume()
@@ -56,7 +53,7 @@ struct MyPostsService {
     
     
     //http delete
-    public func deleteJsonData(id: Int, completion:@escaping(Error?)->()){
+    public func deleteMyPosts(id: Int, completion:@escaping(Error?)->()){
         
         guard let nsURL = URL(string:myPostsUrl+"/\(id)") else {return}
         
@@ -76,7 +73,7 @@ struct MyPostsService {
     
     
     //http post
-    public func createJsonData(title : String, description : String , completion:@escaping(Data?)->()){
+    public func createMyPost(title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:myPostsUrl) else {return}
         let uploadDataModel = MyPostData(id: 0, title: title, body: description,userId: 1)
@@ -107,7 +104,7 @@ struct MyPostsService {
     
 
     //http put
-    public func updateJsonData(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
+    public func updateMyPost(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
         
         guard let nsURL = URL(string:myPostsUrl+"/\(id)") else {return}
         let uploadDataModel = MyPostData(id: id, title: title, body: description,userId: 1)

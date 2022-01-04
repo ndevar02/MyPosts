@@ -13,8 +13,8 @@ protocol MyPostTableCellDelegate{
 
 class MyPostTableCell: UITableViewCell {
     
-    var cellDelegate : MyPostTableCellDelegate?
-    var jsonDataToBeEdited : MyPostData?
+   public var cellDelegate : MyPostTableCellDelegate?
+   public var jsonDataToBeEdited : MyPostData?
     
     @IBAction func myPostsClickToEdit(_ sender: Any) {
         cellDelegate?.myPostsEditData(myPostsDataToBeEdited: jsonDataToBeEdited)
