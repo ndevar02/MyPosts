@@ -8,14 +8,171 @@
 import Foundation
 
 
-struct MyPostsService {
-    let myPostsUrl = "https://jsonplaceholder.typicode.com/posts"
+
+class MyPostServiceClass {
     
-    private func parsejson(myPostData : Data) -> [MyPostData]? {
+    private var urlString : String
+    private var urlsession : URLSession
+    
+    init(urlString : String = "https://jsonplaceholder.typicode.com/posts", urlSession : URLSession = .shared){
+        self.urlString = urlString
+        self.urlsession = urlSession
+    }
+    
+    public func createMyPost(title : String, description : String , completion:@escaping(MyPostResponse?,Error?)-> Void) {
+        
+        guard let nsURL = URL(string:urlString) else {
+            //todo
+            return}
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        urlRequest.httpBody = convertMyPostToData(id: 0, title: title, description: description)
+        
+        let task =  urlsession.dataTask(with: urlRequest as URLRequest) {
+            (data,response,error) in
+            if let safeData = data {
+             let myResponse = self.convertDataToMyPost(data: safeData) 
+                completion(myResponse,nil)
+            }
+            else
+            {
+                completion(nil,error)
+            }
+            
+        }
+        
+        task.resume()
+    }
+   
+    
+    //http get
+    public func getMyPosts(completion:@escaping ([MyPostResponse]?,Error?)->()){
+        
+        guard let nsURL = URL(string:urlString) else {return}
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "GET"
+        
+        let task = urlsession.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+
+                if let safeData = data {
+                   
+                    let result = self.convertToMyPostArray(myPostData: safeData)
+                    if result != nil {
+                        completion(result,error)
+                    }
+                }
+                else
+                {
+                    completion(nil,error)
+                }
+
+        }
+        
+        task.resume()
+    }
+    
+   
+   
+    
+    
+    //http delete
+    public func deleteMyPosts(id: Int, completion:@escaping(MyPostResponse?,Error?)->()){
+        
+        guard let nsURL = URL(string:urlString+"/\(id)") else {return}
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "DELETE"
+        
+        // Add other verbs here
+        let task = urlsession.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+            if let safeData = data {
+               
+               completion(nil,nil)
+            }
+            else
+            {
+                completion(nil,error)
+            }
+            
+           
+            
+        }
+        task.resume()
+    }
+    
+    //http put
+    public func updateMyPost(id: Int, title : String, description : String , completion:@escaping(MyPostResponse?,Error?)->()){
+        
+        guard let nsURL = URL(string:urlString+"/\(id)") else {return}
+        
+        
+        var urlRequest = URLRequest(url: nsURL)
+        urlRequest.httpMethod = "PUT"
+        
+        urlRequest.httpBody = convertMyPostToData(id: id, title:title, description: description)
+        
+        // Add other verbs here
+        let task = urlsession.dataTask(with: urlRequest as URLRequest) {
+            (data, response, error) in
+            if let safeData = data {
+            let myResponse = self.convertDataToMyPost(data: safeData)
+                completion(myResponse,nil)
+            }
+            else{
+                completion(nil,error)
+            }
+            
+        }
+        task.resume()
+    }
+    
+    public func convertMyPostToData(id : Int, title : String, description : String) -> Data?{
+        
+        let uploadDataModel = MyPostResponse(id: id, title: title, body: description,userId: 1)
+        // Convert model to JSON data
+        do {
+            let jsonData = try JSONEncoder().encode(uploadDataModel)
+            return jsonData
+        }
+        catch{
+            print("Error: convertMyPostToJson")
+            return nil
+        }
+       
+     
+       
+        
+    }
+    
+    
+    public func convertDataToMyPost(data : Data) -> MyPostResponse?{
+        
+        do{
+            // Convert json to model
+            let myResponse = try JSONDecoder().decode(MyPostResponse.self, from: data)
+            return myResponse
+            
+        }
+        catch{
+            print(error)
+            print("error in convertjsontomypost")
+            return nil
+        }
+        
+        
+    }
+    public func convertToMyPostArray(myPostData : Data) -> [MyPostResponse]? {
         
         let decoder = JSONDecoder()
         do{
-            let value = try decoder.decode([MyPostData].self, from: myPostData)
+            let value = try decoder.decode([MyPostResponse].self, from: myPostData)
             return value
         }
         catch{
@@ -24,107 +181,4 @@ struct MyPostsService {
         }
         
     }
-    
-    //http get
-    public func getMyPosts(completion:@escaping ([MyPostData],Error?)->()){
-        
-        guard let nsURL = URL(string:myPostsUrl) else {return}
-        
-        var urlRequest = URLRequest(url: nsURL)
-        urlRequest.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
-            (data, response, error) in
-            if error == nil {
-                
-                if let safeData = data {
-                    let result = parsejson(myPostData: safeData)
-                    if result != nil {
-                        completion(result!,error)
-                    }
-                }
-            }
-            
-        }
-        
-        task.resume()
-    }
-    
-    
-    
-    //http delete
-    public func deleteMyPosts(id: Int, completion:@escaping(Error?)->()){
-        
-        guard let nsURL = URL(string:myPostsUrl+"/\(id)") else {return}
-        
-        var urlRequest = URLRequest(url: nsURL)
-        urlRequest.httpMethod = "DELETE"
-        
-        // Add other verbs here
-        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
-            (data, response, error) in
-            
-            completion(error)
-            
-        }
-        task.resume()
-    }
-    
-    
-    
-    //http post
-    public func createMyPost(title : String, description : String , completion:@escaping(Data?)->()){
-        
-        guard let nsURL = URL(string:myPostsUrl) else {return}
-        
-        
-        var urlRequest = URLRequest(url: nsURL)
-        urlRequest.httpMethod = "POST"
-        
-       urlRequest.httpBody = convertMyPostToJson(id: 0, title:title, description: description)
-        
-        // Add other verbs here
-        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
-            (data, response, error) in
-            
-            guard let data = data else {return}
-            
-            completion(data)
-            
-        }
-        task.resume()
-    }
-    
-    private func convertMyPostToJson(id : Int, title : String, description : String) -> Data?{
-        
-        let uploadDataModel = MyPostData(id: id, title: title, body: description,userId: 1)
-        // Convert model to JSON data
-        guard let jsonData = try? JSONEncoder().encode(uploadDataModel) else {
-            print("Error: Trying to convert model to JSON data")
-            return nil
-        }
-        return jsonData
-        
-    }
-    
-    //http put
-    public func updateMyPost(id: Int, title : String, description : String , completion:@escaping(Data?)->()){
-        
-        guard let nsURL = URL(string:myPostsUrl+"/\(id)") else {return}
-        
-
-        var urlRequest = URLRequest(url: nsURL)
-        urlRequest.httpMethod = "PUT"
-        
-        urlRequest.httpBody = convertMyPostToJson(id: id, title:title, description: description)
-        
-        // Add other verbs here
-        let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) {
-            (data, response, error) in
-            completion(data)
-            
-        }
-        task.resume()
-    }
-    
 }

@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5658A13D-BC66-4DEF-9F0E-A4B9FCD13C3C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88715E70-208A-45A9-BFEE-D3E288FD17CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "tearDownWithError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6091D9F1-295E-429F-A8EE-17D00B252F21"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MockUrlProtocol.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "startLoading()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A6B482B7-D9F5-43D3-8AF9-ED42E51B6C78"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "createMyPost(title:description:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AFD2517-8754-44C3-9C30-0ACBAE4A63AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "createMyPost(title:description:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C11DDC1-F0FF-46E7-9ACF-8CA1461383B9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "createMyPost(title:description:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38AAD1CE-DEE5-4F35-96C4-D32A81CC5D4D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "createMyPost(title:description:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D692C69-BC10-41FA-B7A8-CD60749B5DA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "deleteMyPosts(id:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BE8A686-0A00-4D50-92B8-283E98E7D0DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "testMyPostService_shouldConvertMyPostToData_shouldReturnTrue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D94CFDB4-2771-4FBB-857E-1CCD30A34771"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "testMyPostService_shouldConvertDataToMyPost_shouldReturnTrue()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D94CFDB4-2771-4FBB-857E-1CCD30A34771 - 5eb6dd87478d20a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.myPostsTests.testMyPostService_shouldConvertJsonToMyPost_shouldReturnTrue() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/myPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "134">
+               </Location>
+               <Location
+                  uuid = "D94CFDB4-2771-4FBB-857E-1CCD30A34771 - 5eb6dd87478d20a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.myPostsTests.testMyPostService_shouldConvertJsonToMyPost_shouldReturnTrue() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/myPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "138">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A36C5B89-6CB7-4CE5-B233-460C63E90BE5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "testMyPostService_shouldConvertDataToMyPost_shouldReturnTrue()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6AA319B5-6556-43F8-A69B-7E6477140E98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "testMyPostService_shouldConvertMyPostToData_shouldReturnNotEqualWhenResponseIsNotMatching()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A649917-5852-4CBB-87CE-DD0BA165E595"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "testMyPostService_whenGetResponseIsNil_shouldThrowError()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A649917-5852-4CBB-87CE-DD0BA165E595 - 77a1623d1d1b31dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.myPostsTests.testMyPostService_whenGetMyPost_shouldReturnArrayCountAs0() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/myPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "71">
+               </Location>
+               <Location
+                  uuid = "7A649917-5852-4CBB-87CE-DD0BA165E595 - 77a1623d1d1b31dd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.myPostsTests.testMyPostService_whenGetMyPost_shouldReturnArrayCountAs0() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/myPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "133">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4D0C21B-97EF-42B0-BDC4-6584BF7F4AD8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/myPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "testMyPostService_whenGetResponseIsNil_shouldThrowError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E48225B8-07B5-4B2E-9CAF-DD027F5666C3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getMyPosts(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52F80792-2109-418B-B760-34F3B8F32904"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "testMyPostService_shouldConvertDataToMyPostArray_shouldReturnArrayCount0()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A0A28CA-B6BC-44CC-A2C8-A71D1C26ECE7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "testMyPostService_shouldConvertDataToMyPostArray_shouldReturnArrayCountGreaterThan0()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2732809A-0A88-434B-8056-1E3503C45A6F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "testMyPostService_whenGetResponseIsNil_shouldThrowError()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2732809A-0A88-434B-8056-1E3503C45A6F - f6223928fbae2a5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenGetResponseIsNil_shouldThrowError() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "602">
+               </Location>
+               <Location
+                  uuid = "2732809A-0A88-434B-8056-1E3503C45A6F - f6223928fbae2a5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenGetResponseIsNil_shouldThrowError() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1007">
+               </Location>
+               <Location
+                  uuid = "2732809A-0A88-434B-8056-1E3503C45A6F - f6223928fbae2bf5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenGetResponseIsNil_shouldThrowError() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1007">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D9BF1BB-A8EF-40C1-9F1D-7BC8BF0EC449"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "testMyPostService_whenGetResponseIsNil_shouldThrowError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A871FEC-FABF-4D7B-BC27-AAC83859AA89"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "testMyPostService_whenGetResponseIsNil_shouldThrowError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F0DACC8-05E6-4F49-BC49-CA8E5C169AB4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getMyPosts(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64AD1410-608E-4079-86FA-9136C490E01E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "64AD1410-608E-4079-86FA-9136C490E01E - 3bfe0bff7da66386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  uuid = "64AD1410-608E-4079-86FA-9136C490E01E - 3bfe0bff7da66386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "64AD1410-608E-4079-86FA-9136C490E01E - 3bfe0bff7da66386"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "79">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0924C1E4-19EF-4951-A9F4-976C8B6B9DE1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "updateMyPost(id:title:description:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26A7EAA1-6616-47B0-8FA1-F15D2C0D40D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26A7EAA1-6616-47B0-8FA1-F15D2C0D40D6 - 3bfe0bff7da665f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "26A7EAA1-6616-47B0-8FA1-F15D2C0D40D6 - 3bfe0bff7da665f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "914">
+               </Location>
+               <Location
+                  uuid = "26A7EAA1-6616-47B0-8FA1-F15D2C0D40D6 - 3bfe0bff7da665f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "846">
+               </Location>
+               <Location
+                  uuid = "26A7EAA1-6616-47B0-8FA1-F15D2C0D40D6 - 3bfe0bff7da66512"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPostsTests.MyPostsTests.testMyPostService_whenEdited_shouldFailWhenResponseObjectIsNotEqual() -&gt; ()"
+                  moduleName = "myPostsTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/myPostsTests/MyPostsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "846">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BD3B6164-D22E-4512-89BA-46C4883C89E3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyPosts/Model/MyPostsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "MyPostServiceClass"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "BD3B6164-D22E-4512-89BA-46C4883C89E3 - 6dc9b7b1449189bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPosts.MyPostServiceClass.deinit"
+                  moduleName = "myPosts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/MyPosts/Model/MyPostsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "BD3B6164-D22E-4512-89BA-46C4883C89E3 - 1b6679fdf99d0a00"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "myPosts.MyPostServiceClass.__deallocating_deinit"
+                  moduleName = "myPosts"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nithyadevarajan/XCodeProjects/MyPosts/MyPosts/Model/MyPostsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "556CB11F-E0FD-4180-95B9-D2ED6517BC1F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "testMyPostService_whenDeletedWithNoId_shouldThrowError()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9B63C87-9F88-4DF2-BEDA-04C9F9A50F3D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myPostsTests/MyPostsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "testMyPostService_whenCreatedNewMyPost_ReturnsResponseAsNilWhenNotSuccess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

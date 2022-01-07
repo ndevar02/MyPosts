@@ -19,14 +19,13 @@ class EditAddController: UIViewController {
     
     
     public var isEdit = false
-    public var myPostsDataToBeEdited : MyPostData?
+    public var myPostsDataToBeEdited : MyPostResponse?
     
     override func viewDidLoad() {
         txtTitle.delegate = self
         txtDescription.delegate = self
         super.viewDidLoad()
         isEdit ? showEdit() : saveButton()
-        
     }
     
     private func saveButton(){
@@ -35,9 +34,7 @@ class EditAddController: UIViewController {
         txtTitle.text = ""
         txtDescription.text = ""
         viewId.isHidden = true
-        
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.backAction))
-        
         self.navigationItem.leftBarButtonItem = backButton
         
     }
@@ -63,32 +60,30 @@ class EditAddController: UIViewController {
     }
     @IBAction func updateAndSave(_ sender: UIButton) {
         
-        let mypostService = MyPostsService()
+        let mypostService = MyPostServiceClass()
         
         if !isEdit {
-            mypostService.createMyPost(title: txtTitle.text!, description: txtDescription.text!) { data in
+            
+            
+            mypostService.createMyPost(title: txtTitle.text!, description: txtDescription.text! ){ (MyPostResponse,error) in
                 
-                if data != nil {
-                    DispatchQueue.main.async {
-                        print(String(data:data!,encoding:.utf8))
-                    }
+                if MyPostResponse != nil {
+                    
                 }
                 else
                 {
                     ExceptionHandler.printError(message: "error in create data")
                 }
             }
-            
         }
         else {
             
-            mypostService.updateMyPost(id: Int(lblId.text!) ?? 0, title: txtTitle.text!, description: txtDescription.text!) { data in
-                
+            mypostService.updateMyPost(id: Int(lblId.text!) ?? 0, title: txtTitle.text, description: txtDescription.text) { (data,error) in
                 if data != nil {
                     DispatchQueue.main.async {
                         print("in update")
-                        print(String(data:data!,encoding:.utf8))
-                       
+                       // print(String(data:data,encoding:.utf8))
+                        
                     }
                 }
                 
@@ -97,15 +92,15 @@ class EditAddController: UIViewController {
                     ExceptionHandler.printError(message: "error in update data")
                 }
             }
-            
         }
+        
     }
-    
 }
 
+
 extension EditAddController : UITextViewDelegate{
+    
     func textViewDidChange(_ textView: UITextView) {
-        
         
         if textView == txtTitle{
             

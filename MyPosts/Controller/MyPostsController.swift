@@ -9,8 +9,8 @@ import UIKit
 
 class MyPostsController: UIViewController {
     
-    private var myPosts = [MyPostData]()
-    private let mypostService = MyPostsService()
+    private var myPosts = [MyPostResponse]()
+    private let mypostService = MyPostServiceClass()
     
     
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
@@ -29,27 +29,24 @@ class MyPostsController: UIViewController {
         activitySpinner.startAnimating()
         activitySpinner.hidesWhenStopped = true
         performMyPostsService()
-        
+
     }
     
-    
+
     private func performMyPostsService()
     {
-        mypostService.getMyPosts { (myPostArray , error ) in
-            if myPostArray.count > 0 {
+        mypostService.getMyPosts { myPostArray, error in
+            if myPostArray!.count > 0 {
                 DispatchQueue.main.async {
-                    self.myPosts = myPostArray
+                    self.myPosts = myPostArray!
                     print("in SERVICE before reload")
                     self.tblMyPosts.reloadData()
                     self.tblMyPosts.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .top, animated: true)
                     self.activitySpinner.stopAnimating()
                     
                 }
-                
             }
-            else{
-                ExceptionHandler.printError(message: "Error in get Api")
-            }
+            
         }
     }
     
@@ -79,7 +76,8 @@ extension MyPostsController : UITableViewDelegate{
             let alert = UIAlertController(title: "Delete Record", message: "Are you sure you want to delete?", preferredStyle: UIAlertController.Style.alert)
             let yesAction = UIAlertAction(title: "ok", style: .default, handler: { (action) -> Void in
                 
-                self.mypostService.deleteMyPosts(id:indexPath.row) {  (error) in
+               
+                self.mypostService.deleteMyPosts(id:indexPath.row) {  (response,error) in
                     if let err = error {
                         ExceptionHandler.printError(message: err.localizedDescription)
                     }
@@ -128,7 +126,8 @@ extension MyPostsController : UITableViewDataSource{
 }
 
 extension MyPostsController : MyPostTableCellDelegate{
-    func myPostsEditData(myPostsDataToBeEdited: MyPostData?) {
+    
+    func myPostsEditData(myPostsDataToBeEdited: MyPostResponse?) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let editAdd = storyBoard.instantiateViewController(withIdentifier: "EditAddController") as! EditAddController

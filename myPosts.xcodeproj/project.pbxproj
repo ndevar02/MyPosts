@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2062178727797D360023FB4A /* MyPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178627797D360023FB4A /* MyPostsService.swift */; };
-		2062178927797D7E0023FB4A /* MyPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062178827797D7E0023FB4A /* MyPostData.swift */; };
+		20BDF85B27855764005C4119 /* MyPostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDF85A27855764005C4119 /* MyPostsTests.swift */; };
+		20BDF866278569C0005C4119 /* MyPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDF865278569C0005C4119 /* MyPostResponse.swift */; };
+		20BDF86A2785B49F005C4119 /* MockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDF8692785B49F005C4119 /* MockUrlProtocol.swift */; };
+		20BE0A932787F418007B8171 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE0A922787F418007B8171 /* Data.swift */; };
+		20BE0A9527880E53007B8171 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BE0A9427880E53007B8171 /* Error.swift */; };
 		20C07624277AD9C800EB22F7 /* MyPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07623277AD9C800EB22F7 /* MyPostTableCell.swift */; };
 		20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07625277AEFB400EB22F7 /* EditAddController.swift */; };
 		20C0762A277B1B1E00EB22F7 /* ExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */; };
@@ -20,9 +24,24 @@
 		20EA70892775BDC700A7D9D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20EA70872775BDC700A7D9D8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		20BDF85C27855764005C4119 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20EA70712775BDC500A7D9D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20EA70782775BDC500A7D9D8;
+			remoteInfo = myPosts;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2062178627797D360023FB4A /* MyPostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsService.swift; sourceTree = "<group>"; };
-		2062178827797D7E0023FB4A /* MyPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostData.swift; sourceTree = "<group>"; };
+		20BDF85827855764005C4119 /* myPostsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPostsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20BDF85A27855764005C4119 /* MyPostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostsTests.swift; sourceTree = "<group>"; };
+		20BDF865278569C0005C4119 /* MyPostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostResponse.swift; sourceTree = "<group>"; };
+		20BDF8692785B49F005C4119 /* MockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlProtocol.swift; sourceTree = "<group>"; };
+		20BE0A922787F418007B8171 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		20BE0A9427880E53007B8171 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		20C07623277AD9C800EB22F7 /* MyPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableCell.swift; sourceTree = "<group>"; };
 		20C07625277AEFB400EB22F7 /* EditAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddController.swift; sourceTree = "<group>"; };
 		20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionHandler.swift; sourceTree = "<group>"; };
@@ -37,6 +56,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		20BDF85527855764005C4119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		20EA70762775BDC500A7D9D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,10 +73,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20BDF85927855764005C4119 /* myPostsTests */ = {
+			isa = PBXGroup;
+			children = (
+				20BDF85A27855764005C4119 /* MyPostsTests.swift */,
+				20BDF8692785B49F005C4119 /* MockUrlProtocol.swift */,
+				20BE0A922787F418007B8171 /* Data.swift */,
+			);
+			path = myPostsTests;
+			sourceTree = "<group>";
+		};
 		20EA70702775BDC500A7D9D8 = {
 			isa = PBXGroup;
 			children = (
 				20EA707B2775BDC500A7D9D8 /* MyPosts */,
+				20BDF85927855764005C4119 /* myPostsTests */,
 				20EA707A2775BDC500A7D9D8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				20EA70792775BDC500A7D9D8 /* myPosts.app */,
+				20BDF85827855764005C4119 /* myPostsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,8 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				2062178627797D360023FB4A /* MyPostsService.swift */,
-				2062178827797D7E0023FB4A /* MyPostData.swift */,
 				20C07629277B1B1E00EB22F7 /* ExceptionHandler.swift */,
+				20BDF865278569C0005C4119 /* MyPostResponse.swift */,
+				20BE0A9427880E53007B8171 /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +148,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		20BDF85727855764005C4119 /* myPostsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20BDF86027855764005C4119 /* Build configuration list for PBXNativeTarget "myPostsTests" */;
+			buildPhases = (
+				20BDF85427855764005C4119 /* Sources */,
+				20BDF85527855764005C4119 /* Frameworks */,
+				20BDF85627855764005C4119 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20BDF85D27855764005C4119 /* PBXTargetDependency */,
+			);
+			name = myPostsTests;
+			productName = myPostsTests;
+			productReference = 20BDF85827855764005C4119 /* myPostsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		20EA70782775BDC500A7D9D8 /* myPosts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20EA708D2775BDC700A7D9D8 /* Build configuration list for PBXNativeTarget "myPosts" */;
@@ -136,6 +193,10 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
+					20BDF85727855764005C4119 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 20EA70782775BDC500A7D9D8;
+					};
 					20EA70782775BDC500A7D9D8 = {
 						CreatedOnToolsVersion = 13.1;
 					};
@@ -155,11 +216,19 @@
 			projectRoot = "";
 			targets = (
 				20EA70782775BDC500A7D9D8 /* myPosts */,
+				20BDF85727855764005C4119 /* myPostsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		20BDF85627855764005C4119 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		20EA70772775BDC500A7D9D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,13 +242,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		20BDF85427855764005C4119 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20BE0A9527880E53007B8171 /* Error.swift in Sources */,
+				20BDF85B27855764005C4119 /* MyPostsTests.swift in Sources */,
+				20BE0A932787F418007B8171 /* Data.swift in Sources */,
+				20BDF86A2785B49F005C4119 /* MockUrlProtocol.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		20EA70752775BDC500A7D9D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				20EA70812775BDC500A7D9D8 /* MyPostsController.swift in Sources */,
-				2062178927797D7E0023FB4A /* MyPostData.swift in Sources */,
 				2062178727797D360023FB4A /* MyPostsService.swift in Sources */,
+				20BDF866278569C0005C4119 /* MyPostResponse.swift in Sources */,
 				20C07624277AD9C800EB22F7 /* MyPostTableCell.swift in Sources */,
 				20C07626277AEFB400EB22F7 /* EditAddController.swift in Sources */,
 				20EA707D2775BDC500A7D9D8 /* AppDelegate.swift in Sources */,
@@ -189,6 +269,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20BDF85D27855764005C4119 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20EA70782775BDC500A7D9D8 /* myPosts */;
+			targetProxy = 20BDF85C27855764005C4119 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		20EA70822775BDC500A7D9D8 /* Main.storyboard */ = {
@@ -210,6 +298,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		20BDF85E27855764005C4119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Test.myPostsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myPosts.app/myPosts";
+			};
+			name = Debug;
+		};
+		20BDF85F27855764005C4119 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Test.myPostsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myPosts.app/myPosts";
+			};
+			name = Release;
+		};
 		20EA708B2775BDC700A7D9D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -383,6 +515,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		20BDF86027855764005C4119 /* Build configuration list for PBXNativeTarget "myPostsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20BDF85E27855764005C4119 /* Debug */,
+				20BDF85F27855764005C4119 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		20EA70742775BDC500A7D9D8 /* Build configuration list for PBXProject "myPosts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
